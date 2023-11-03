@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-while getopts s:t flag
+while getopts f:o: flag
 do
     case "${flag}" in
-        s) source=${OPTARG};;
-        t) target=${OPTARG};;
+        f) source=${OPTARG};;
+        o) target=${OPTARG};;
     esac
 done
 
-nasm -f $source.asm -o $target.o
+# echo "$source"
+# echo "$target"
+nasm -f elf32 $source -o $target.o
 ld -m elf_i386 $target.o -o $target
+
+rm $target.o
