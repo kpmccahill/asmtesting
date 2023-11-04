@@ -1,5 +1,6 @@
 global _main
 extern _printf
+
 section .data
     addr db "yellow"
 
