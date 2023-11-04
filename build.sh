@@ -10,6 +10,7 @@ done
 # echo "$source"
 # echo "$target"
 nasm -f elf32 $source -o $target.o
-ld -m elf_i386 $target.o -o $target
+# ld -m elf_i386 $target.o -o $target
+gcc -m32 $target.o -o $target
 
 rm $target.o
